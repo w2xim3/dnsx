@@ -61,6 +61,7 @@ type Options struct {
 	OutputCDN         bool
 	ASN               bool
 	HealthCheck       bool
+	Forever       	  bool
 }
 
 // ShouldLoadResume resume file
@@ -142,6 +143,7 @@ func ParseOptions() *Options {
 		flagSet.StringVarP(&options.Resolvers, "resolver", "r", "", "list of resolvers to use (file or comma separated)"),
 		flagSet.IntVarP(&options.WildcardThreshold, "wildcard-threshold", "wt", 5, "wildcard filter threshold"),
 		flagSet.StringVarP(&options.WildcardDomain, "wildcard-domain", "wd", "", "domain name for wildcard filtering (other flags will be ignored - only json output is supported)"),
+		flagSet.BoolVar(&options.Forever, "runforever", false, "wildcard filter threshold"),
 	)
 
 	_ = flagSet.Parse()
